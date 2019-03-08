@@ -18,7 +18,7 @@ class QMKMusicWriter(MusicWriter):
         output_file.close()
 
     def parse_to_qmk_string(self, qmk_note_list, filename):
-        output_str_notes = list(map(lambda x: x.parse_to_qmk_string(), qmk_note_list))
-        qmk_str_list = ["#define {0}".format(filename)]
-        qmk_str_list += output_str_notes
-        return ", \\\n".join(qmk_str_list)
+        output_str_notes = list(map(lambda x: "\t{0}".format(x.parse_to_qmk_string()), qmk_note_list))
+        qmk_head_str = "#define {0} \\\n".format(filename)
+        output_str = "{0}{1},".format(qmk_head_str, ", \\\n".join(output_str_notes))
+        return output_str
