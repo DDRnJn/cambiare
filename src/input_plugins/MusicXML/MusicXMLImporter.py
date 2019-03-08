@@ -43,6 +43,8 @@ class MusicXMLImporter(MusicImporter):
         return song
 
     def parse_note_pitch(self, pitch):
+        pitch = pitch.replace("#", "S")
+        pitch = pitch.replace("-", "F")
         if pitch in NotePitch.__members__:
             return NotePitch[pitch]
         else:
