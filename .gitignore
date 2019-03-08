@@ -1,0 +1,4 @@
+*.pyc
+.idea/*
+output/*
+!output/__init__.py
