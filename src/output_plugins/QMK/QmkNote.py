@@ -43,7 +43,7 @@ class QmkNote:
         if note_type in self.qmk_duration_mapping_slow:
             return self.qmk_duration_mapping_slow[note_type]
         else:
-            return NoteType.quarter
+            return self.qmk_duration_mapping_slow[NoteType.quarter]
 
     def parse_note_pitch(self, note_pitch):
         return "_{0}".format(str(note_pitch.name))

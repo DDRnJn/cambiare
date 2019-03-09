@@ -6,6 +6,7 @@ from music21.note import Note
 from src.input_plugins.MusicImporter import MusicImporter
 from src.core.Song import Song
 from enum import Enum
+from music21.chord import Chord
 import os
 
 class MusicXMLImporter(MusicImporter):
@@ -36,11 +37,21 @@ class MusicXMLImporter(MusicImporter):
     def parse_notes(self, notes):
         song = Song()
         for note in notes:
-            current_note_pitch = self.parse_note_pitch(str(note.pitch))
-            current_note_type = self.parse_note_type(float(note.quarterLength))
+            if note.isChord:
+                current_note = self.convert_chord_to_note(note)
+            else:
+                current_note = note
+            current_note_pitch = self.parse_note_pitch(str(current_note.pitch))
+            current_note_type = self.parse_note_type(float(current_note.quarterLength))
             new_cnote = CNote(current_note_pitch, current_note_type)
             song.add_note(new_cnote)
         return song
+
+    #  Converts a chord to the highest pitched note in the chord
+    def convert_chord_to_note(self, chord):
+        note = chord[-1]
+        note.quarterLength = chord.duration.quarterLength
+        return note
 
     def parse_note_pitch(self, pitch):
         pitch = pitch.replace("#", "S")
@@ -54,7 +65,7 @@ class MusicXMLImporter(MusicImporter):
         if note_type in self.note_type_map:
             return self.note_type_map[note_type]
         else:
-            return "quarter"
+            return self.note_type_map[1.0]
 
 
 
