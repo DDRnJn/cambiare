@@ -30,6 +30,8 @@ class OC12HoleNote:
         return img_path
 
     def get_closest_note_pitch(self, note_pitch):
+        if note_pitch.name == "REST":
+            return None
         octave = int(note_pitch.name[-1])
         pitch = note_pitch.name[:-1]
         if octave <= self.min_pitch:
@@ -38,7 +40,7 @@ class OC12HoleNote:
                 if new_note in self.note_pitch_img_map:
                     return "{0}{1}".format(pitch, pitch_octave)
         elif octave >= self.max_pitch:
-            for pitch_octave in range(self.max_pitch, self.max_pitch-1, -1):
+            for pitch_octave in range(self.max_pitch, self.min_pitch-1, -1):
                 new_note = "{0}{1}".format(pitch, pitch_octave)
                 if new_note in self.note_pitch_img_map:
                     return "{0}{1}".format(pitch, pitch_octave)
