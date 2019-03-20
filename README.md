@@ -1,5 +1,7 @@
 # Cambiare - A lightweight music format conversion framework
 
+[![Build Status](https://travis-ci.com/DDRnJn/cambiare.svg?branch=master)](https://travis-ci.com/DDRnJn/cambiare)
+
 I developed this to help write music in the format used by QMK, but decided to convert it into a framework so other music formats could be easily implemented. Currently only supports single-staff inputs. 
 
 ### Input Plugins
