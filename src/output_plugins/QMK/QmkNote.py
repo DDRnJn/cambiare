@@ -35,15 +35,30 @@ class QmkNote:
             NoteType.dotted_sixteenth: "ED_NOTE",  # Dotted Sixteenth Note
         }
 
+        #  EVEN SLOWER
+        self.qmk_duration_mapping_slower = {
+            NoteType.whole: "BD_NOTE",  # Whole Note
+            NoteType.half: "B__NOTE",  # Half Note
+            NoteType.quarter: "W__NOTE",  # Quarter Note
+            NoteType.eighth: "H__NOTE",  # Eighth Note
+            NoteType.sixteenth: "Q__NOTE",  # Sixteenth Note
+            NoteType.dotted_whole: "BD_NOTE",  # Dotted Whole Note
+            NoteType.dotted_half: "BD_NOTE",  # Dotted Half Note
+            NoteType.dotted_quarter: "WD_NOTE",  # Dotted Quarter Note
+            NoteType.dotted_eighth: "HD_NOTE",  # Dotted Eighth Note
+            NoteType.dotted_sixteenth: "QD_NOTE",  # Dotted Sixteenth Note
+        }
+
+
         self.note_type = self.parse_note_type(note_type)
         self.note_pitch = self.parse_note_pitch(note_pitch)
         #self.qmk_string = self.parse_to_qmk_string(music21_note)
 
     def parse_note_type(self, note_type):
-        if note_type in self.qmk_duration_mapping_slow:
-            return self.qmk_duration_mapping_slow[note_type]
+        if note_type in self.qmk_duration_mapping_slower:
+            return self.qmk_duration_mapping_slower[note_type]
         else:
-            return self.qmk_duration_mapping_slow[NoteType.quarter]
+            return self.qmk_duration_mapping_slower[NoteType.quarter]
 
     def parse_note_pitch(self, note_pitch):
         return "_{0}".format(str(note_pitch.name))
