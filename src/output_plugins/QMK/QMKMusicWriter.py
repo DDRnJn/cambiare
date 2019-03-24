@@ -6,7 +6,7 @@ from datetime import datetime
 class QMKMusicWriter(MusicWriter):
 
     def __init__(self):
-        self.max_row_length = 7
+        self.max_row_length = 8
 
     def process_output(self, song: Song, filename):
         qmk_output = []
@@ -26,9 +26,9 @@ class QMKMusicWriter(MusicWriter):
         output_str_list = []
         for i in range(len(output_str_notes)):
             if i % self.max_row_length == 0 and i != 0:
-                out_str = "{0}, \\\n\t".format(output_str_notes[i])
+                out_str = "{0}, \\\n  ".format(output_str_notes[i])
             else:
                 out_str = "{0}, ".format(output_str_notes[i])
             output_str_list.append(out_str)
-        output_str = "{0}\t{1}".format(qmk_head_str, "".join(output_str_list))
+        output_str = "{0}  {1}".format(qmk_head_str, "".join(output_str_list))
         return output_str
