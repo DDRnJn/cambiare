@@ -26,11 +26,16 @@ class OC12HoleMusicWriter(MusicWriter):
         out_filename = filename.stem.upper()
         out_timestamp = str(datetime.timestamp(datetime.now())).split(".")[0]
         out_filename_full = "{0}{1}.png".format(out_filename, out_timestamp)
-        image_list = [Image.open(x.note_pitch_img_path.resolve()) for x in oc_output if x.note_pitch_img_path is not None]
+        image_list = [self.resize_oc_image(Image.open(x.note_pitch_img_path.resolve())) for x in oc_output if x.note_pitch_img_path is not None]
         new_image = self.make_new_image(image_list)
-        new_image = self.resize_image(new_image)
         output_path = self.output_folder / out_filename_full
         new_image.save(output_path)
+
+    def resize_oc_image(self, img):
+        new_width = int(img.size[0] / self.resize_scale)
+        new_height = int(img.size[1] / self.resize_scale)
+        new_image = img.resize((new_width, new_height))
+        return new_image
 
     def resize_image(self, image):
         new_width = int(self.current_image_width / self.resize_scale)
