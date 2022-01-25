@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from src.core import Song
+from cambiare.core import Song
 
 
 class MusicImporter(ABC):

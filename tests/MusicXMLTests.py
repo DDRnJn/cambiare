@@ -1,10 +1,10 @@
 import unittest
-from src.core.CNote import CNote
-from src.core.NotePitch import NotePitch
-from src.core.NoteType import NoteType
-from src.input_plugins.MusicImporter import MusicImporter
-from src.input_plugins.MusicXML.MusicXMLImporter import MusicXMLImporter
-from src.core.Song import Song
+from cambiare.core.CNote import CNote
+from cambiare.core.NotePitch import NotePitch
+from cambiare.core.NoteType import NoteType
+from cambiare.input_plugins.MusicImporter import MusicImporter
+from cambiare.input_plugins.MusicXML.MusicXMLImporter import MusicXMLImporter
+from cambiare.core.Song import Song
 from music21 import converter
 from music21.note import Note
 

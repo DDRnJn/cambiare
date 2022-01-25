@@ -1,5 +1,5 @@
-from src.core.NoteType import NoteType
-from src.core.NotePitch import NotePitch
+from cambiare.core.NoteType import NoteType
+from cambiare.core.NotePitch import NotePitch
 
 class QmkNote:
 

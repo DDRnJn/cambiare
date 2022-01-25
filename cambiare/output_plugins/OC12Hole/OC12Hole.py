@@ -1,5 +1,5 @@
-from src.output_plugins.MusicWriter import MusicWriter
-from src.core import Song
+from cambiare.output_plugins.MusicWriter import MusicWriter
+from cambiare.core import Song
 from .OC12HoleNote import OC12HoleNote
 from datetime import datetime
 from PIL import Image
