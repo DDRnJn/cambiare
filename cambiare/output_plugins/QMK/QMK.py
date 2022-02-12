@@ -1,9 +1,10 @@
-from cambiare.output_plugins.MusicWriter import MusicWriter
-from cambiare.core import Song
+from output_plugins.MusicWriter import MusicWriter
+from core import Song
 from .QmkNote import QmkNote
-from datetime import datetime
+import os
 
-class QMKMusicWriter(MusicWriter):
+
+class QMK(MusicWriter):
 
     def __init__(self):
         self.max_row_length = 8
@@ -13,10 +14,9 @@ class QMKMusicWriter(MusicWriter):
         for cnote in song.notes:
             qmk_note = QmkNote(cnote.pitch, cnote.note_type)
             qmk_output.append(qmk_note)
-        out_filename = filename.stem.upper()
+        out_filename = os.path.basename(filename)
         output_string = self.parse_to_qmk_string(qmk_output, out_filename)
-        out_timestamp = str(datetime.timestamp(datetime.now())).split(".")[0]
-        output_file = open("../output/{0}_out_{1}.txt".format(out_filename, out_timestamp), 'w')
+        output_file = open(filename, 'w')
         output_file.write(output_string)
         output_file.close()
 

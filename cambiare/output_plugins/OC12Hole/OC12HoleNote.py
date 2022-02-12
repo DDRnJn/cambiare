@@ -11,7 +11,6 @@ class OC12HoleNote:
         self.max_pitch = 6
         self.note_pitch_img_map = self.get_note_pitch_img_map()
         self.note_pitch_img_path = self.get_note_pitch_img(note_pitch)
-        print(self.note_pitch_img_path)
 
     def get_note_pitch_img_map(self):
         note_pitch_img_map = {}
