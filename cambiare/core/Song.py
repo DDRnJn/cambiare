@@ -1,4 +1,3 @@
-from .CNote import CNote
 
 
 class Song:

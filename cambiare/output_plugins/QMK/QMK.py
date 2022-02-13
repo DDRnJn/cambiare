@@ -1,6 +1,6 @@
-from output_plugins.MusicWriter import MusicWriter
-from core import Song
-from .QmkNote import QmkNote
+from cambiare.output_plugins.MusicWriter import MusicWriter
+from cambiare.core import Song
+from cambiare.output_plugins.QMK.QmkNote import QmkNote
 import os
 
 

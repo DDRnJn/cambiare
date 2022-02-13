@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class NoteType(Enum):
 
     whole = 1

@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from core import Song
+from cambiare.core import Song
 
 
 class MusicWriter(ABC):

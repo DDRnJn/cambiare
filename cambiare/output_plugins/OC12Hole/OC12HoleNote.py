@@ -1,4 +1,4 @@
-from .OCNotePitch import OCNotePitch
+from cambiare.output_plugins.OC12Hole.OCNotePitch import OCNotePitch
 from pathlib import Path
 
 

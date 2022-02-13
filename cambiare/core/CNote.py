@@ -1,5 +1,5 @@
-from .NotePitch import NotePitch
-from .NoteType import NoteType
+from cambiare.core.NotePitch import NotePitch
+from cambiare.core.NoteType import NoteType
 
 
 class CNote:

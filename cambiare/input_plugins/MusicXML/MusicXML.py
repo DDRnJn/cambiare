@@ -1,10 +1,10 @@
-from core.CNote import CNote
-from core.NotePitch import NotePitch
-from core.NoteType import NoteType
+from cambiare.core.CNote import CNote
+from cambiare.core.NotePitch import NotePitch
+from cambiare.core.NoteType import NoteType
 from music21 import converter
 from music21.note import Note
-from input_plugins.MusicImporter import MusicImporter
-from core.Song import Song
+from cambiare.input_plugins.MusicImporter import MusicImporter
+from cambiare.core.Song import Song
 from enum import Enum
 from music21.chord import Chord
 import os
